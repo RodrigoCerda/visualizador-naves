@@ -5,6 +5,7 @@ import background from "../../Images/background.png";
 import { Container, Row } from "react-bootstrap"
 
 export default () => {
+    // background de figma
     const containerstyle = {
         height: '100vh',
         backgroundImage: `url(${background})`,

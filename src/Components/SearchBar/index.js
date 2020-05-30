@@ -3,14 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectShip } from "../../Store/Actions"
 import { Form, Col } from "react-bootstrap";
 export default () => {
-    const { ships, selectedShip } = useSelector(state => ({
-        ships: state.ships,
-        selectedShip: state.currentShip
-    }))
+    // obtención de naves desde store
+    const ships = useSelector(state => state.ships)
     const dispatch = useDispatch()
     const handleSelectShip = (e) => {
         const shipID = e.target.value
         if (!(shipID < 0)) {
+            // dispatch de nave seleccionada segun indice en array
             dispatch(selectShip(ships[shipID]))
         }
     }
@@ -18,7 +17,6 @@ export default () => {
     const style = {
         backgroundColor: 'black',
         color: 'white',
-        fontFamily: 'Roboto',
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: '18px',

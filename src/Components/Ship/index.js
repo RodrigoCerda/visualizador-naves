@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Card, Col } from "react-bootstrap";
 import './styles.css';
 export default () => {
+    //obtención de nave seleccionada desde store
     const ship = useSelector(state => state.currentShip)
     const style = {
         backgroundColor: "rgba(255,255,255,0.7)"

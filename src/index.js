@@ -9,9 +9,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-
+// store con middleware thunk
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
-
+// dispatch action para obtener naves
 store.dispatch(fetchShips);
 ReactDOM.render(
   <React.StrictMode>
