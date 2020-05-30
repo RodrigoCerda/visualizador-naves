@@ -1,0 +1,2 @@
+export const SAVE_FETCHED_DATA = 'SAVE_FETCHED_DATA'
+export const SELECT_SHIP = 'SELECT_SHIP'
