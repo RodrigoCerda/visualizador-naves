@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectShip } from "../../Store/Actions"
 import { Form, Col } from "react-bootstrap";
 export default () => {
-    const { ships } = useSelector(state => ({
+    const { ships, selectedShip } = useSelector(state => ({
         ships: state.ships,
         selectedShip: state.currentShip
     }))
@@ -14,21 +14,36 @@ export default () => {
             dispatch(selectShip(ships[shipID]))
         }
     }
+    // Estilo obtenido de figma
     const style = {
         backgroundColor: 'black',
-        color: 'white'
+        color: 'white',
+        fontFamily: 'Roboto',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '18px',
+        lineHeight: '21px',
     }
     return (
         <Col xs={12}>
             <Form>
                 <Form.Group controlId="exampleForm.SelectCustom">
-                    <Form.Control as="select" 
-                    style={style}
-                    onChange={handleSelectShip}
-                     >
+                    <Form.Control as="select"
+                        className="form-select-ship"
+                        style={style}
+                        onChange={handleSelectShip}>
+                        <option value={-1} disabled
+                            selected
+                            key={"ship-key-placeholder"}>
+                            Seleccione una nave...
+                            </option>
+                         }
                         {ships.map((ship, index) => (
-                            <option value={index} key={"ship-key-" + index}>{ship.name}</option>
-                        ))}
+                                <option value={index}
+                                    key={"ship-key-" + index}>
+                                    {ship.name}
+                                </option>
+                            ))}
                     </Form.Control>
                 </Form.Group>
             </Form>

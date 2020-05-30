@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Card, Col } from "react-bootstrap"
+import { Card, Col } from "react-bootstrap";
+import './styles.css';
 export default () => {
     const ship = useSelector(state => state.currentShip)
     const style = {
@@ -9,21 +10,23 @@ export default () => {
     return (<React.Fragment>
         {!!ship && (
             <Col xs={12}>
-                <Card className="text-center py-4 px-3" style={style}>
-                    <Card.Title><h2>{ship.name}</h2></Card.Title>
-                    <Card.Text>{ship.model}</Card.Text>
-                    <hr />
-                    <Card.Subtitle><h4>Fabricante</h4></Card.Subtitle>
-                    <Card.Text>{ship.manufacturer}</Card.Text>
-                    <Card.Subtitle><h4>Largo</h4></Card.Subtitle>
-                    <Card.Text>{ship.length} fts.</Card.Text>
-                    <Card.Subtitle><h4>Valor</h4></Card.Subtitle>
-                    <Card.Text>{ship.cost_in_credits} créditos</Card.Text>
-                    <Card.Subtitle><h4>Cantidad pasajeros</h4></Card.Subtitle>
-                    <Card.Text>{ship.passengers}</Card.Text>
+                <Card className="text-center py-4 px-2" style={style}>
+                    <Card.Body>
+                        <Card.Title>{ship.name}</Card.Title>
+                        <Card.Text>{ship.model}</Card.Text>
+                        <hr />
+                        <Card.Subtitle>Fabricante</Card.Subtitle>
+                        <Card.Text>{ship.manufacturer}</Card.Text>
+                        <Card.Subtitle>Largo</Card.Subtitle>
+                        <Card.Text>{ship.length} fts.</Card.Text>
+                        <Card.Subtitle>Valor</Card.Subtitle>
+                        <Card.Text>{Number(ship.cost_in_credits).toLocaleString()} créditos</Card.Text>
+                        <Card.Subtitle>Cantidad pasajeros</Card.Subtitle>
+                        <Card.Text>{Number(ship.passengers).toLocaleString()}</Card.Text>
+                    </Card.Body>
                 </Card>
                 <Card className="text-center py-4 px-3 mt-1" style={style}>
-                    <Card.Title><h2>Pasajeros</h2></Card.Title>
+                    <Card.Title>Pasajeros</Card.Title>
                     <hr />
                 </Card>
             </Col>
