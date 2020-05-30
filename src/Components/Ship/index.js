@@ -25,8 +25,6 @@ export default () => {
                 <Card className="text-center py-4 px-3 mt-1" style={style}>
                     <Card.Title><h2>Pasajeros</h2></Card.Title>
                     <hr />
-
-
                 </Card>
             </Col>
         )}

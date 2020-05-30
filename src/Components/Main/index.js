@@ -5,16 +5,17 @@ import background from "../../Images/background.png";
 import { Container, Row } from "react-bootstrap"
 
 export default () => {
-    const style = {
+    const containerstyle = {
         height: '100vh',
         backgroundImage: `url(${background})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
+        overflowY: 'auto'
     }
     return (
-        <Container className="p-4" style={style}> 
-            <Row>
+        <Container className="p-4" style={containerstyle}> 
+            <Row >
                 <SearchBar />
                 <Ship />
             </Row>
